@@ -17,6 +17,10 @@ namespace Utility.Test.Process
 
         [DataRow(null)]
         [DataRow(" ")]
+        [DataRow("\t")]
+        [DataRow("\n")]
+        [DataRow("\r")]
+        [DataRow("\r\n")]
         [DataRow("")]
         [TestMethod]
         public void IsValid_02_拡張メソッドとして呼び出し無効な文字列を入力する_期待値_FALSE(string? input)

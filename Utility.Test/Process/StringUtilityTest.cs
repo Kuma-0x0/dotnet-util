@@ -33,7 +33,7 @@ namespace Utility.Test.Process
         public void IsValid_02_—LŒø‚È•¶Žš—ñ‚ð“ü—Í‚·‚é_Šú‘Ò’l_TRUE(string? input)
         {
             var actual = input.IsValid();
-            Assert.IsTrue(input.IsValid());
+            Assert.IsTrue(actual);
         }
     }
 }

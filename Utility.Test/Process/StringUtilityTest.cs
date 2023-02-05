@@ -1,4 +1,4 @@
-using Utility.Process;
+ï»¿using Utility.Process;
 
 namespace Utility.Test.Process
 {
@@ -7,35 +7,30 @@ namespace Utility.Test.Process
     {
         [DataRow(null)]
         [DataRow(" ")]
-        [DataRow("")]
-        [TestMethod]
-        public void IsValid_01_ƒNƒ‰ƒX‚©‚çŒÄ‚Ño‚µ–³Œø‚È•¶š—ñ‚ğ“ü—Í‚·‚é_Šú‘Ò’l_FALSE(string? input)
-        {
-            var actual = StringUtility.IsValid(input);
-            Assert.IsFalse(actual);
-        }
-
-        [DataRow(null)]
-        [DataRow(" ")]
         [DataRow("\t")]
         [DataRow("\n")]
         [DataRow("\r")]
         [DataRow("\r\n")]
         [DataRow("")]
         [TestMethod]
-        public void IsValid_02_Šg’£ƒƒ\ƒbƒh‚Æ‚µ‚ÄŒÄ‚Ño‚µ–³Œø‚È•¶š—ñ‚ğ“ü—Í‚·‚é_Šú‘Ò’l_FALSE(string? input)
+        public void IsValid_01_ç„¡åŠ¹ãªæ–‡å­—åˆ—ã‚’å…¥åŠ›ã™ã‚‹_æœŸå¾…å€¤_FALSE(string? input)
         {
-            var actual = input.IsValid();
+            // ã‚¯ãƒ©ã‚¹ã‹ã‚‰å‘¼ã³å‡ºã—ã€‚
+            var actual = StringUtility.IsValid(input);
+            Assert.IsFalse(actual);
+
+            // ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‹ã‚‰å‘¼ã³å‡ºã—ã€‚
+            actual = input.IsValid();
             Assert.IsFalse(actual);
         }
 
         [DataRow("1")]
         [DataRow("a")]
         [DataRow("A")]
-        [DataRow("‚ ")]
-        [DataRow("ƒA")]
+        [DataRow("ã‚")]
+        [DataRow("ã‚¢")]
         [TestMethod]
-        public void IsValid_03_—LŒø‚È•¶š—ñ‚ğ“ü—Í‚·‚é_Šú‘Ò’l_TRUE(string? input)
+        public void IsValid_02_æœ‰åŠ¹ãªæ–‡å­—åˆ—ã‚’å…¥åŠ›ã™ã‚‹_æœŸå¾…å€¤_TRUE(string? input)
         {
             var actual = input.IsValid();
             Assert.IsTrue(actual);

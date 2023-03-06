@@ -11,7 +11,7 @@ env:
   DOTNET_VERSION: "6.0.x"
 
 jobs:
-  unit-test-and-call-relay-app:
+  run-unit-test:
     runs-on: windows-latest
     steps:
       - name: "Checkout GitHub Action"

@@ -1,39 +1,35 @@
 ﻿using Utility.Process;
 
-namespace Utility.Test.Process
+namespace Utility.Test.Process;
+
+[TestClass]
+public class StringUtilityTest
 {
-    [TestClass]
-    public class StringUtilityTest
+    [DataRow(null)]
+    [DataRow(" ")]
+    [DataRow("\t")]
+    [DataRow("\n")]
+    [DataRow("\r")]
+    [DataRow("\r\n")]
+    [DataRow("")]
+    [TestMethod]
+    public void IsValid_無効な文字列を入力する_期待値_FALSE(string? input)
     {
-        [DataRow(null)]
-        [DataRow(" ")]
-        [DataRow("\t")]
-        [DataRow("\n")]
-        [DataRow("\r")]
-        [DataRow("\r\n")]
-        [DataRow("")]
-        [TestMethod]
-        public void IsValid_01_無効な文字列を入力する_期待値_FALSE(string? input)
-        {
-            // クラスから呼び出し。
-            var actual = StringUtility.IsValid(input);
-            Assert.IsFalse(actual);
+        // クラスから呼び出し。
+        Assert.IsFalse(StringUtility.IsValid(input));
 
-            // インスタンスから呼び出し。
-            actual = input.IsValid();
-            Assert.IsFalse(actual);
-        }
+        // 変数から呼び出し。
+        Assert.IsFalse(input.IsValid());
+    }
 
-        [DataRow("1")]
-        [DataRow("a")]
-        [DataRow("A")]
-        [DataRow("あ")]
-        [DataRow("ア")]
-        [TestMethod]
-        public void IsValid_02_有効な文字列を入力する_期待値_TRUE(string? input)
-        {
-            var actual = input.IsValid();
-            Assert.IsTrue(actual);
-        }
+    [DataRow("1")]
+    [DataRow("a")]
+    [DataRow("A")]
+    [DataRow("あ")]
+    [DataRow("ア")]
+    [TestMethod]
+    public void IsValid_有効な文字列を入力する_期待値_TRUE(string? input)
+    {
+        Assert.IsTrue(input.IsValid());
     }
 }

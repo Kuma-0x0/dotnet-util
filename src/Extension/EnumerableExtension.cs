@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Utility.Process;
+namespace System.Linq;
 
-public static class EnumerableUtility
+public static class EnumerableExtension
 {
     /// <summary>
     /// 要素が含まれているか

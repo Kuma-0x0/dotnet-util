@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace Utility.Process;
+namespace System;
 
-public static class StringUtility
+public static class StringExtension
 {
     /// <summary>
     /// 文字列が有効であるか検証する

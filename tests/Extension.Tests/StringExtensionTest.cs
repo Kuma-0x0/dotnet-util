@@ -1,9 +1,7 @@
-﻿using Utility.Process;
-
-namespace Utility.Test.Process;
+﻿namespace Extension.Tests;
 
 [TestClass]
-public class StringUtilityTest
+public class StringExtensionTest
 {
     [DataRow(null)]
     [DataRow(" ")]
@@ -15,10 +13,7 @@ public class StringUtilityTest
     [TestMethod]
     public void IsValid_無効な文字列を入力する_期待値_FALSE(string? input)
     {
-        // クラスから呼び出し。
-        Assert.IsFalse(StringUtility.IsValid(input));
-
-        // 変数から呼び出し。
+        Assert.IsFalse(StringExtension.IsValid(input));
         Assert.IsFalse(input.IsValid());
     }
 

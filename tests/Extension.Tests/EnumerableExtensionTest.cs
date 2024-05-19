@@ -1,64 +1,47 @@
-﻿using Utility.Process;
-
-namespace Utility.Test.Process;
+﻿namespace Extension.Tests;
 
 [TestClass]
-public class EnumerableUtilityTest
+public class EnumerableExtensionTest
 {
     #region AnyOrNotNull
     [TestMethod]
     public void AnyOrNotNull_Null_期待値_FALSE()
     {
         IEnumerable<int>? data = null;
-        var actual = EnumerableUtility.AnyOrNotNull(data);
-        Assert.IsFalse(actual);
-
-        actual = data.AnyOrNotNull();
-        Assert.IsFalse(actual);
+        Assert.IsFalse(EnumerableExtension.AnyOrNotNull(data));
+        Assert.IsFalse(data.AnyOrNotNull());
     }
 
     [TestMethod]
     public void AnyOrNotNull_空配列_期待値_FALSE()
     {
-        var data = Array.Empty<int>();
-        var actual = EnumerableUtility.AnyOrNotNull(data);
-        Assert.IsFalse(actual);
-
-        actual = data.AnyOrNotNull();
-        Assert.IsFalse(actual);
+        int[] data = [];
+        Assert.IsFalse(EnumerableExtension.AnyOrNotNull(data));
+        Assert.IsFalse(data.AnyOrNotNull());
     }
 
     [TestMethod]
     public void AnyOrNotNull_空リスト_期待値_FALSE()
     {
-        var data = new List<int>();
-        var actual = EnumerableUtility.AnyOrNotNull(data);
-        Assert.IsFalse(actual);
-
-        actual = data.AnyOrNotNull();
-        Assert.IsFalse(actual);
+        List<int> data = [];
+        Assert.IsFalse(EnumerableExtension.AnyOrNotNull(data));
+        Assert.IsFalse(data.AnyOrNotNull());
     }
 
     [TestMethod]
     public void AnyOrNotNull_要素あり配列_期待値_TRUE()
     {
-        var data = new int[] { 0, };
-        var actual = EnumerableUtility.AnyOrNotNull(data);
-        Assert.IsTrue(actual);
-
-        actual = data.AnyOrNotNull();
-        Assert.IsTrue(actual);
+        int[] data = [0];
+        Assert.IsTrue(EnumerableExtension.AnyOrNotNull(data));
+        Assert.IsTrue(data.AnyOrNotNull());
     }
 
     [TestMethod]
     public void AnyOrNotNull_要素ありリスト_期待値_TRUE()
     {
-        var data = new List<int>() { 0, };
-        var actual = EnumerableUtility.AnyOrNotNull(data);
-        Assert.IsTrue(actual);
-
-        actual = data.AnyOrNotNull();
-        Assert.IsTrue(actual);
+        List<int> data = [0];
+        Assert.IsTrue(EnumerableExtension.AnyOrNotNull(data));
+        Assert.IsTrue(data.AnyOrNotNull());
     }
     #endregion
 
@@ -74,7 +57,7 @@ public class EnumerableUtilityTest
             return value.ToString();
         }
 
-        var actual = await EnumerableUtility.SelectAsync(data, selector);
+        var actual = await EnumerableExtension.SelectAsync(data, selector);
         string[] expected = ["0", "1", "2", "3",];
 
         Assert.AreEqual(data.Length, actual.Count());

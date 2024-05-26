@@ -3,14 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extension", "src\Extension\Extension.csproj", "{5391CE9B-AAB6-4EC7-9CF4-EBBE5BD6A1CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions", "src\Extensions\Extensions.csproj", "{5391CE9B-AAB6-4EC7-9CF4-EBBE5BD6A1CC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extension.Tests", "tests\Extension.Tests\Extension.Tests.csproj", "{C01A5F50-ED90-43D1-8722-AAC9D0D6BE04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensions.Tests", "tests\Extensions.Tests\Extensions.Tests.csproj", "{C01A5F50-ED90-43D1-8722-AAC9D0D6BE04}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{870B4DD8-D2CC-4CE6-8395-CC4E2FD3325D}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "src\Models\Models.csproj", "{A00455D0-7D24-4A0D-96E4-6B4647B9F426}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models.Tests", "tests\Models.Tests\Models.Tests.csproj", "{61054B8B-4330-468B-B633-27EA8F3E62EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +30,14 @@ Global
 		{C01A5F50-ED90-43D1-8722-AAC9D0D6BE04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C01A5F50-ED90-43D1-8722-AAC9D0D6BE04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C01A5F50-ED90-43D1-8722-AAC9D0D6BE04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A00455D0-7D24-4A0D-96E4-6B4647B9F426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A00455D0-7D24-4A0D-96E4-6B4647B9F426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A00455D0-7D24-4A0D-96E4-6B4647B9F426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A00455D0-7D24-4A0D-96E4-6B4647B9F426}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61054B8B-4330-468B-B633-27EA8F3E62EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61054B8B-4330-468B-B633-27EA8F3E62EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61054B8B-4330-468B-B633-27EA8F3E62EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61054B8B-4330-468B-B633-27EA8F3E62EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

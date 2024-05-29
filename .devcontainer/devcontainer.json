@@ -1,0 +1,22 @@
+{
+  "name": "C# (.NET)",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/dotnet:2": {
+      "version": "8.0"
+    }
+  },
+  "postCreateCommand": "dotnet restore --locked-mode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "github.vscode-github-actions",
+        "MS-CEINTL.vscode-language-pack-ja",
+        "ms-dotnettools.csdevkit",
+        "shardulm94.trailing-spaces"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}

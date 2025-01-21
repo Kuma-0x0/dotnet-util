@@ -1,52 +1,51 @@
-﻿namespace Extension.Tests;
+﻿namespace Extensions.Tests;
 
-[TestClass]
 public class EnumerableExtensionTest
 {
     #region AnyOrNotNull
-    [TestMethod]
-    public void AnyOrNotNull_Null_期待値_FALSE()
+    [Test]
+    public async Task AnyOrNotNull_Null_期待値_FALSE()
     {
         IEnumerable<int>? data = null;
-        Assert.IsFalse(EnumerableExtension.AnyOrNotNull(data));
-        Assert.IsFalse(data.AnyOrNotNull());
+        await Assert.That(EnumerableExtension.AnyOrNotNull(data)).IsFalse();
+        await Assert.That(data.AnyOrNotNull()).IsFalse();
     }
 
-    [TestMethod]
-    public void AnyOrNotNull_空配列_期待値_FALSE()
+    [Test]
+    public async Task AnyOrNotNull_空配列_期待値_FALSE()
     {
         int[] data = [];
-        Assert.IsFalse(EnumerableExtension.AnyOrNotNull(data));
-        Assert.IsFalse(data.AnyOrNotNull());
+        await Assert.That(EnumerableExtension.AnyOrNotNull(data)).IsFalse();
+        await Assert.That(data.AnyOrNotNull()).IsFalse();
     }
 
-    [TestMethod]
-    public void AnyOrNotNull_空リスト_期待値_FALSE()
+    [Test]
+    public async Task AnyOrNotNull_空リスト_期待値_FALSE()
     {
         List<int> data = [];
-        Assert.IsFalse(EnumerableExtension.AnyOrNotNull(data));
-        Assert.IsFalse(data.AnyOrNotNull());
+        await Assert.That(EnumerableExtension.AnyOrNotNull(data)).IsFalse();
+        await Assert.That(data.AnyOrNotNull()).IsFalse();
     }
 
-    [TestMethod]
-    public void AnyOrNotNull_要素あり配列_期待値_TRUE()
+    [Test]
+    public async Task AnyOrNotNull_要素あり配列_期待値_TRUE()
     {
         int[] data = [0];
-        Assert.IsTrue(EnumerableExtension.AnyOrNotNull(data));
-        Assert.IsTrue(data.AnyOrNotNull());
+        await Assert.That(EnumerableExtension.AnyOrNotNull(data)).IsTrue();
+        await Assert.That(data.AnyOrNotNull()).IsTrue();
     }
 
-    [TestMethod]
-    public void AnyOrNotNull_要素ありリスト_期待値_TRUE()
+    [Test]
+    public async Task AnyOrNotNull_要素ありリスト_期待値_TRUE()
     {
         List<int> data = [0];
-        Assert.IsTrue(EnumerableExtension.AnyOrNotNull(data));
-        Assert.IsTrue(data.AnyOrNotNull());
+        await Assert.That(EnumerableExtension.AnyOrNotNull(data)).IsTrue();
+        await Assert.That(data.AnyOrNotNull()).IsTrue();
     }
     #endregion
 
     #region SelectAsync
-    [TestMethod]
+    [Test]
     public async Task SelectAsync_クラスを呼び出し非同期処理を実行する_期待値_成功()
     {
         int[] data = [0, 1, 2, 3,];
@@ -60,11 +59,11 @@ public class EnumerableExtensionTest
         var actual = await EnumerableExtension.SelectAsync(data, selector);
         string[] expected = ["0", "1", "2", "3",];
 
-        Assert.AreEqual(data.Length, actual.Count());
-        Assert.IsTrue(expected.SequenceEqual(actual));
+        await Assert.That(data.Length).IsEqualTo(actual.Count());
+        await Assert.That(expected.SequenceEqual(actual)).IsTrue();
     }
 
-    [TestMethod]
+    [Test]
     public async Task SelectAsync_拡張メソッドとして非同期処理を実行する_期待値_成功()
     {
         int[] data = [0, 1, 2, 3,];
@@ -76,8 +75,8 @@ public class EnumerableExtensionTest
         });
         string[] expected = ["0", "1", "2", "3",];
 
-        Assert.AreEqual(data.Length, actual.Count());
-        Assert.IsTrue(expected.SequenceEqual(actual));
+        await Assert.That(data.Length).IsEqualTo(actual.Count());
+        await Assert.That(expected.SequenceEqual(actual)).IsTrue();
     }
     #endregion
 }

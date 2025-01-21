@@ -1,30 +1,29 @@
-﻿namespace Extension.Tests;
+﻿namespace Extensions.Tests;
 
-[TestClass]
 public class StringExtensionTest
 {
-    [DataRow(null)]
-    [DataRow(" ")]
-    [DataRow("\t")]
-    [DataRow("\n")]
-    [DataRow("\r")]
-    [DataRow("\r\n")]
-    [DataRow("")]
-    [TestMethod]
-    public void IsValid_無効な文字列を入力する_期待値_FALSE(string? input)
+    [Test]
+    [Arguments(null)]
+    [Arguments(" ")]
+    [Arguments("\t")]
+    [Arguments("\n")]
+    [Arguments("\r")]
+    [Arguments("\r\n")]
+    [Arguments("")]
+    public async Task IsValid_無効な文字列を入力する_期待値_FALSE(string? input)
     {
-        Assert.IsFalse(StringExtension.IsValid(input));
-        Assert.IsFalse(input.IsValid());
+        await Assert.That(StringExtension.IsValid(input)).IsFalse();
+        await Assert.That(input.IsValid()).IsFalse();
     }
 
-    [DataRow("1")]
-    [DataRow("a")]
-    [DataRow("A")]
-    [DataRow("あ")]
-    [DataRow("ア")]
-    [TestMethod]
-    public void IsValid_有効な文字列を入力する_期待値_TRUE(string? input)
+    [Test]
+    [Arguments("1")]
+    [Arguments("a")]
+    [Arguments("A")]
+    [Arguments("あ")]
+    [Arguments("ア")]
+    public async Task IsValid_有効な文字列を入力する_期待値_TRUE(string? input)
     {
-        Assert.IsTrue(input.IsValid());
+        await Assert.That(input.IsValid()).IsTrue();
     }
 }

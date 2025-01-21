@@ -11,17 +11,11 @@
 
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.*" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.*" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.3.*" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.3.*" />
+    <PackageReference Include="TUnit" Version="0.6.151" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Extensions\Extensions.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
 
 </Project>
